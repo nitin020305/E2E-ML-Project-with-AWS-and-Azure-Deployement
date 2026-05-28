@@ -93,13 +93,17 @@ class ModelTrainer:
                                               models=models, param=params)
             
             ##to get best model score form dictionary
-            best_model_score = max(sorted(model_report.values()))
+            best_model_score = max(
+                model_report.values(),
+                key=lambda x: x["test_r2_score"]
+            )["test_r2_score"]
 
             ##to get best model name from dict
 
-            best_model_name = list(model_report.keys())[
-                list(model_report.values()).index(best_model_score)
-            ]
+            best_model_name = max(
+                model_report,
+                key=lambda x: model_report[x]["test_r2_score"]
+            )
             best_model= models[best_model_name] 
 
             if best_model_score<0.6:

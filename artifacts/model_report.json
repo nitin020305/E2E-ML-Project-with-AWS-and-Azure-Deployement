@@ -1,0 +1,82 @@
+{
+    "Linear Regression": {
+        "train_r2_score": 0.8743172040139593,
+        "test_r2_score": 0.8804332983749565,
+        "mae": 4.21476314247485,
+        "rmse": 5.393993869732841,
+        "best_params": {}
+    },
+    "K-Neighbors Regressor": {
+        "train_r2_score": 0.9996534669717835,
+        "test_r2_score": 0.5807293396122912,
+        "mae": 7.961492309577307,
+        "rmse": 10.100725303941713,
+        "best_params": {
+            "algorithm": "auto",
+            "n_neighbors": 11,
+            "weights": "distance"
+        }
+    },
+    "Decision Tree": {
+        "train_r2_score": 0.9996534669718089,
+        "test_r2_score": 0.6020921893133184,
+        "mae": 7.3625,
+        "rmse": 9.840033028399853,
+        "best_params": {
+            "criterion": "friedman_mse",
+            "max_features": "log2",
+            "splitter": "best"
+        }
+    },
+    "Random Forest": {
+        "train_r2_score": 0.9759548274455532,
+        "test_r2_score": 0.8465652901334708,
+        "mae": 4.724539930555555,
+        "rmse": 6.110364702976854,
+        "best_params": {
+            "n_estimators": 64
+        }
+    },
+    "XGBRegressor": {
+        "train_r2_score": 0.9287495013467192,
+        "test_r2_score": 0.8492434722253639,
+        "mae": 4.662501173019409,
+        "rmse": 6.056802147852899,
+        "best_params": {
+            "learning_rate": 0.05,
+            "n_estimators": 64
+        }
+    },
+    "CatBoosting Regressor": {
+        "train_r2_score": 0.9071223853509314,
+        "test_r2_score": 0.8613734525258083,
+        "mae": 4.4590342624221435,
+        "rmse": 5.808025676586997,
+        "best_params": {
+            "depth": 6,
+            "iterations": 100,
+            "learning_rate": 0.1
+        }
+    },
+    "AdaBoost Regressor": {
+        "train_r2_score": 0.8543571490967132,
+        "test_r2_score": 0.8540961525730686,
+        "mae": 4.670082043732005,
+        "rmse": 5.958524044317821,
+        "best_params": {
+            "learning_rate": 0.5,
+            "n_estimators": 256
+        }
+    },
+    "Gradient Boosting": {
+        "train_r2_score": 0.8951479176713668,
+        "test_r2_score": 0.8705235168313263,
+        "mae": 4.336852610830977,
+        "rmse": 5.61307404653564,
+        "best_params": {
+            "learning_rate": 0.05,
+            "n_estimators": 128,
+            "subsample": 0.7
+        }
+    }
+}
