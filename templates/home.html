@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Student Exam Performance Indicator</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body{
+            background: linear-gradient(to right,#141e30,#243b55);
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            padding:30px;
+        }
+
+        .login{
+            background:white;
+            width:100%;
+            max-width:700px;
+            padding:40px;
+            border-radius:15px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .login h1{
+            text-align:center;
+            margin-bottom:30px;
+            color:#243b55;
+        }
+
+        .form-group{
+            margin-bottom:20px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:8px;
+            font-weight:bold;
+            color:#333;
+        }
+
+        select,
+        input{
+            width:100%;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:16px;
+            outline:none;
+        }
+
+        select:focus,
+        input:focus{
+            border-color:#243b55;
+        }
+
+        button{
+            width:100%;
+            padding:14px;
+            background:#243b55;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:18px;
+            cursor:pointer;
+            transition:0.3s;
+        }
+
+        button:hover{
+            background:#141e30;
+        }
+
+        .result{
+            margin-top:25px;
+            text-align:center;
+            font-size:22px;
+            font-weight:bold;
+            color:green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login">
+
+        <h1>Student Exam Performance Indicator</h1>
+
+        <form action="{{ url_for('predict_datapoint') }}" method="post">
+
+            <!-- Gender -->
+            <div class="form-group">
+                <label>Gender</label>
+
+                <select name="gender" required>
+                    <option selected disabled value="">Select your Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <!-- Ethnicity -->
+            <div class="form-group">
+                <label>Race or Ethnicity</label>
+
+                <select name="ethnicity" required>
+                    <option selected disabled value="">Select Ethnicity</option>
+
+                    <option value="group A">Group A</option>
+                    <option value="group B">Group B</option>
+                    <option value="group C">Group C</option>
+                    <option value="group D">Group D</option>
+                    <option value="group E">Group E</option>
+                </select>
+            </div>
+
+            <!-- Parent Education -->
+            <div class="form-group">
+                <label>Parental Level of Education</label>
+
+                <select name="parental_level_of_education" required>
+                    <option selected disabled value="">
+                        Select Parent Education
+                    </option>
+
+                    <option value="associate's degree">
+                        associate's degree
+                    </option>
+
+                    <option value="bachelor's degree">
+                        bachelor's degree
+                    </option>
+
+                    <option value="high school">
+                        high school
+                    </option>
+
+                    <option value="master's degree">
+                        master's degree
+                    </option>
+
+                    <option value="some college">
+                        some college
+                    </option>
+
+                    <option value="some high school">
+                        some high school
+                    </option>
+                </select>
+            </div>
+
+            <!-- Lunch -->
+            <div class="form-group">
+                <label>Lunch Type</label>
+
+                <select name="lunch" required>
+                    <option selected disabled value="">
+                        Select Lunch Type
+                    </option>
+
+                    <option value="free/reduced">
+                        free/reduced
+                    </option>
+
+                    <option value="standard">
+                        standard
+                    </option>
+                </select>
+            </div>
+
+            <!-- Test Preparation -->
+            <div class="form-group">
+                <label>Test Preparation Course</label>
+
+                <select name="test_preparation_course" required>
+                    <option selected disabled value="">
+                        Select Test Course
+                    </option>
+
+                    <option value="none">
+                        None
+                    </option>
+
+                    <option value="completed">
+                        Completed
+                    </option>
+                </select>
+            </div>
+
+            <!-- Reading Score -->
+            <div class="form-group">
+                <label>Reading Score out of 100</label>
+
+                <input
+                    type="number"
+                    name="reading_score"
+                    placeholder="Enter Reading Score"
+                    min="0"
+                    max="100"
+                    required
+                >
+            </div>
+
+            <!-- Writing Score -->
+            <div class="form-group">
+                <label>Writing Score out of 100</label>
+
+                <input
+                    type="number"
+                    name="writing_score"
+                    placeholder="Enter Writing Score"
+                    min="0"
+                    max="100"
+                    required
+                >
+            </div>
+
+            <!-- Submit -->
+            <button type="submit">
+                Predict Maths Score
+            </button>
+
+        </form>
+
+        <div class="result">
+            {{ results }}
+        </div>
+
+    </div>
+
+</body>
+</html>
